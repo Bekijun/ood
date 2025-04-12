@@ -83,6 +83,12 @@
 	  <version>2.1.10</version>
 	  <type>jar</type>
 	 </dependency>
+	 <dependency>
+	  <groupId>org.apache.tomcat</groupId>
+	  <artifactId>tomcat-jsp-api</artifactId>
+	  <version>9.0.104</version>
+	  <type>jar</type>
+	 </dependency>
 	</dependencies>
 
 	<build>
