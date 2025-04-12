@@ -1,7 +1,7 @@
-<%-- 
-    Document   : index1
-    Created on : 2025. 3. 18., 오후 1:24:53
-    Author     : 915-14
+ <%-- 
+    Document   : process
+    Created on : 2025. 4. 9., 오후 11:11:00
+    Author     : beki
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -10,9 +10,12 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>page 지시어의 오류 관련 속성 미사용 예제</title>
+        <title>process.jsp</title>
     </head>
     <body>
-        <%= 5 / 0 %>
+        반갑습니다.
+        <%=request.getParameter("user")%> 님!
+        
+        <%@include file="/WEB-INF/jspf/main_footer.jspf" %>
     </body>
 </html>

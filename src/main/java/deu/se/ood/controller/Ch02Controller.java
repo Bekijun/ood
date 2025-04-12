@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 @Slf4j
 public class Ch02Controller {
+    
     @GetMapping("/ch02")
     public String ch02() {
         return "ch02/index";
