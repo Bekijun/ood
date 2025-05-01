@@ -21,10 +21,11 @@ public class SystemErrorController implements ErrorController {
     @RequestMapping("/error")
     public String errorPage(HttpServletRequest request, RedirectAttributes attrs) {
         Integer status = (Integer)request.getAttribute(RequestDispatcher.ERROR_STATUS_CODE);
-        String uri = request.getRequestURI();
-        attrs.addFlashAttribute("msg", "오류가 발생하여 컨텍스트 루트로 이동하였습니다. 오류 코드 = " + status.toString());
-        
+        String uri = (String)request.getAttribute(RequestDispatcher.ERROR_REQUEST_URI);
+
+        System.out.println("🔴 에러 감지! 상태코드: " + status + ", 요청 URI: " + uri);
+
+        attrs.addFlashAttribute("msg", "오류가 발생하여 컨텍스트 루트로 이동하였습니다. 오류 코드 = " + status);
         return "redirect:/";
     }
-    
 }

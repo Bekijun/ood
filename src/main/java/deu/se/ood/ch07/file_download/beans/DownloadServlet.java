@@ -9,14 +9,16 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.ServletOutputStream;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.HttpServlet;
+
 import java.io.BufferedInputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.net.URLEncoder;
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -43,7 +45,7 @@ public class DownloadServlet extends HttpServlet {
             BufferedInputStream bis = new BufferedInputStream(fis);
             
             //응답 헤더 설정
-            response.setHeader("Content-Disposition", "inline: filename="
+            response.setHeader("Content-Disposition", "inline; filename="
                 + URLEncoder.encode(selectedFile, "UTF-8"));
             
             //파일 쓰기
@@ -61,4 +63,23 @@ public class DownloadServlet extends HttpServlet {
             out.close();
         }
     }
+    
+    @Override
+    protected void doGet(HttpServletRequest request,
+                         HttpServletResponse response)
+            throws ServletException, IOException {
+        processRequest(request, response);
+    }
+    
+    @Override
+    protected void doPost(HttpServletRequest request,
+                         HttpServletResponse response)
+            throws ServletException, IOException {
+        processRequest(request, response);
+    }
+    
+    @Override
+    public String getServletInfo() {
+        return "Short description";
+    } //</editor-fold>
 }

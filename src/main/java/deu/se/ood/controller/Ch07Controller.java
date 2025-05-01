@@ -16,8 +16,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 @Slf4j
 public class Ch07Controller {
-    @GetMapping("/ch07")
+    @GetMapping("ch07/download")
     public String ch07() {
-        return "ch07/index";
+        return "/ch07/download/index";
     }
 }

@@ -9,7 +9,7 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <!-- 환경설정이 Mac이기 때문에 경로 수정 -->
-<c:set value="Users/beki/jsp/download" var="targetDirectory" />
+<c:set value="/Users/beki/jsp/download" var="targetDirectory" />
 <jsp:useBean id="fileList" scope="page"
              class="deu.se.ood.ch07.file_download.beans.FileListBean" />
 <jsp:setProperty name="fileList" property="dirName" value="${targetDirectory}"/>
@@ -25,7 +25,7 @@
         <hr/>
         원하는 파일을 선택하세요. <br/> <br/>
         
-        <form action="download.do" method="POST">
+        <form action="${pageContext.request.contextPath}/ch07/FileDownload/download.do" method="POST">
             <c:forEach var="fileName" items="${fileList.relativeFileList}">
                 <input type="radio" name="D1" value="${fileName}" /> ${fileName} <br>
             </c:forEach>
